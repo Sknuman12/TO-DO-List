@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        body{
+            background-color: rgb(7, 59, 59);
+            font-family: 'Courier New', Courier, monospace;
+            
+        }
+        .container{
+            width: 360px;
+            margin-left: 300px;
+            padding: 33px;
+            background-color: white;
+            text-align: center;
+            margin-top: 5px;
+        }
+        input{
+            width: 270px;
+            padding: 8px;
+            border: 2px solid rgb(7, 59, 59);
+            outline: none;
+            font-size: 19px;
+        }
+        button{
+            width: 60px;
+            height: 41px;
+            background-color: black;
+            color: white;
+            border-radius: 2px;
+            font-size: 19px;
+            cursor: pointer;
+        }
+        .text ul{
+            background-color:black;
+            text-align: left;
+            padding: 5px;
+            font-size: 19px;
+            position: relative;
+            color: white;
+   }
+   .text ul i{
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    place-items: center;
+   }
+   
+    </style>
+</head>
+<body>
+    <div class="container">
+       <h1>to do App</h1>
+       <div class="input">
+        <input type="text" placeholder="enter your task" id="imp">
+        <button onclick="Add()">Add</button>
+       </div>
+
+       <div class="text">
+
+       </div>
+    </div>
+
+    <script>
+      let input= document.getElementById("imp")
+      let text= document.querySelector(".text")
+
+      function Add(){
+        if(input.value == ""){
+            alert("please enter task")
+        }else{
+            let newEle= document.createElement("ul");
+            newEle.innerHTML=`${input.value} <i class="fa-solid fa-trash"></i>`;
+            text.appendChild(newEle);
+            input.value="";
+            newEle.querySelector('i').addEventListener("click" ,remove);
+            function remove(){
+                newEle.remove();
+            }
+        }
+      }
+    </script>
+   
+
+
+</body>
+</html>
